@@ -2,10 +2,6 @@
 
 namespace Omnipay\Paysafecard;
 
-use Omnipay\Paysafecard\Message\AuthorizeRequest;
-use Omnipay\Paysafecard\Message\CaptureRequest;
-use Omnipay\Paysafecard\Message\DetailsRequest;
-use Omnipay\Paysafecard\Message\RefundRequest;
 use Omnipay\Tests\GatewayTestCase;
 
 class RestGatewayTest extends GatewayTestCase
@@ -35,7 +31,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->authorize();
 
-        $this->assertInstanceOf(AuthorizeRequest::class, $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\AuthorizeRequest", $request);
     }
 
 
@@ -44,7 +40,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->capture();
 
-        $this->assertInstanceOf(CaptureRequest::class, $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\CaptureRequest", $request);
     }
 
 
@@ -53,7 +49,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->details();
 
-        $this->assertInstanceOf(DetailsRequest::class, $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\DetailsRequest", $request);
     }
 
 
@@ -62,7 +58,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->validateRefund();
 
-        $this->assertInstanceOf(RefundRequest::class, $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\RefundRequest", $request);
     }
 
 
@@ -71,7 +67,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->refund();
 
-        $this->assertInstanceOf(RefundRequest::class, $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\RefundRequest", $request);
     }
 
 
