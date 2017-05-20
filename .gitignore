@@ -1,0 +1,12 @@
+/vendor
+composer.lock
+composer.phar
+phpunit.xml
+.idea/
+index.php
+
+.directory
+dirlist.app
+dirlist.vendor
+dirlist.cache
+documents/

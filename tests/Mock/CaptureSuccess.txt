@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Set-Cookie: JSESSIONID=7YNntIcHtQiVQZj7U19535GZ.pay2; Path=/v1; Secure; HttpOnly, TS0198fb74=011e84e906fa08e1f194c2ac1b3e4d49dd848c91b3bee346604139264f928f8755c6af2e63; Path=/, TS016a0d2f=011e84e906376a07a8f42735330c32254036dcd189ce982d7dfcc76b5b762e312ea9efcefff7710dfb910b11a99afe0611f60ef244; path=/v1
+Content-Type: application/json
+Date: Sat, 20 May 2017 06:41:31 GMT
+Transfer-Encoding: chunked
+
+{"object":"PAYMENT","id":"pay_1020007509_SOGrqsKh0GOsH5qol4wQ2KsQXDixoFEF_EUR","created":1495262400888,"updated":1495262438026,"amount":0.01,"currency":"EUR","status":"SUCCESS","type":"PAYSAFECARD","redirect":{"success_url":"http://success.com","failure_url":"http://fail.com"},"customer":{"id":"1234","ip":"1.2.3.4"},"notification_url":"http://notify.com","card_details":[{"serial":"8199292804504933","type":"00044","country":"XX","currency":"EUR","amount":0.01}]}

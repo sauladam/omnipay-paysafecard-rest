@@ -1,0 +1,35 @@
+{
+  "name": "sauladan/paysafecard-rest",
+  "type": "library",
+  "description": "Paysafecard (with REST API) gateway for Omnipay payment processing library",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "omnipay",
+    "pay",
+    "payment",
+    "paysafecard",
+    "paysafe",
+    "purchase"
+  ],
+  "homepage": "https://github.com/sauladam/paysafecard-rest",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Saulius Adamonis",
+      "email": "saulius.adamonis@gmx.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\Paysafecard\\": "src/"
+    }
+  },
+  "require": {
+    "omnipay/common": "~2.0"
+  },
+  "require-dev": {
+    "omnipay/tests": "~2.0"
+  },
+  "minimum-stability": "dev"
+}

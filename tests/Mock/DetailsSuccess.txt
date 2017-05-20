@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Set-Cookie: JSESSIONID=2jVR8Jew6LZWAQQSDMgwueDW.pay1; Path=/v1; Secure; HttpOnly, TS0198fb74=011e84e906577183c5bf7b1a7aa413a9083886fbc05c403355f46d8bc797aca7b1e96068cc; Path=/, TS016a0d2f=011e84e90685a435fc6d923c85e7cd094ff1d500e09e9c3f31a261991425dfd78b01bd45d277bc1e6cac1c6a536142b4de277c66da; path=/v1
+Content-Type: application/json
+Date: Sat, 20 May 2017 06:57:35 GMT
+Transfer-Encoding: chunked
+
+{"object":"PAYMENT","id":"pay_1020007509_SOGrqsKh0GOsH5qol4wQ2KsQXDixoFEF_EUR","created":1495262400888,"updated":1495262491102,"amount":0.01,"currency":"EUR","status":"SUCCESS","type":"PAYSAFECARD","redirect":{"success_url":"http://success.com","failure_url":"http://fail.com","auth_url":"https://customer.test.at.paysafecard.com/psccustomer/GetCustomerPanelServlet?mid=1020007509&mtid=pay_1020007509_SOGrqsKh0GOsH5qol4wQ2KsQXDixoFEF_EUR&amount=0.01&currency=EUR"},"customer":{"id":"1234","ip":"1.2.3.4"},"notification_url":"http://notify.com","card_details":[{"serial":"8199292804504933","type":"00044","country":"XX","currency":"EUR","amount":0.01}]}
