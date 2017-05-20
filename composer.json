@@ -1,5 +1,5 @@
 {
-  "name": "sauladan/omnipay-paysafecard-rest",
+  "name": "sauladam/omnipay-paysafecard-rest",
   "type": "library",
   "description": "Paysafecard (with REST API) gateway for Omnipay payment processing library",
   "keywords": [
