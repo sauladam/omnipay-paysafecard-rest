@@ -4,7 +4,6 @@ namespace Omnipay\Paysafecard;
 
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Paysafecard\Message\DetailsRequest;
-use Omnipay\Paysafecard\Message\DetailsResponse;
 
 class DetailsRequestTest extends \Omnipay\Tests\TestCase
 {
@@ -82,6 +81,6 @@ class DetailsRequestTest extends \Omnipay\Tests\TestCase
 
         $response = $this->request->setApiKey('some-key')->send();
 
-        $this->assertInstanceOf(DetailsResponse::class, $response);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\DetailsResponse", $response);
     }
 }

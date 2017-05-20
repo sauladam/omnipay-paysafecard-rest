@@ -4,7 +4,6 @@ namespace Omnipay\Paysafecard;
 
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Paysafecard\Message\CaptureRequest;
-use Omnipay\Paysafecard\Message\Response;
 
 class CaptureRequestTest extends \Omnipay\Tests\TestCase
 {
@@ -82,6 +81,6 @@ class CaptureRequestTest extends \Omnipay\Tests\TestCase
 
         $response = $this->request->setApiKey('some-key')->send();
 
-        $this->assertInstanceOf(Response::class, $response);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\Response", $response);
     }
 }

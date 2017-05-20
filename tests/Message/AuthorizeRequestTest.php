@@ -2,10 +2,8 @@
 
 namespace Omnipay\Paysafecard;
 
-use Guzzle\Common\Event;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Paysafecard\Message\AuthorizeRequest;
-use Omnipay\Paysafecard\Message\AuthorizeResponse;
 
 class AuthorizeRequestTest extends \Omnipay\Tests\TestCase
 {
@@ -107,6 +105,6 @@ class AuthorizeRequestTest extends \Omnipay\Tests\TestCase
 
         $response = $this->request->setApiKey('some-key')->send();
 
-        $this->assertInstanceOf(AuthorizeResponse::class, $response);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\AuthorizeResponse", $response);
     }
 }
