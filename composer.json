@@ -12,7 +12,7 @@
     "paysafe",
     "purchase"
   ],
-  "homepage": "https://github.com/sauladam/paysafecard-rest",
+  "homepage": "https://github.com/sauladam/omnipay-paysafecard-rest",
   "license": "MIT",
   "authors": [
     {
