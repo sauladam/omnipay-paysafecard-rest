@@ -62,6 +62,17 @@ class CaptureResponseTest extends \Omnipay\Tests\TestCase
     }
 
 
+    /** @test */
+    public function correct_transaction_status()
+    {
+        $successResponse = $this->mockResponseFrom('CaptureSuccess.txt');
+        $failResponse = $this->mockResponseFrom('CaptureFailure.txt');
+
+        $this->assertTrue($successResponse->isSuccessful());
+        $this->assertFalse($failResponse->isSuccessful());
+    }
+
+
     /**
      * Create a mock response from the given filename.
      *

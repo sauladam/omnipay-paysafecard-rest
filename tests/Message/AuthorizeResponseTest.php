@@ -74,6 +74,17 @@ class AuthorizeResponseTest extends \Omnipay\Tests\TestCase
     }
 
 
+    /** @test */
+    public function correct_transaction_status()
+    {
+        $successResponse = $this->mockResponseFrom('AuthorizeSuccess.txt');
+        $failResponse = $this->mockResponseFrom('AuthorizeFailure.txt');
+
+        $this->assertTrue($successResponse->isSuccessful());
+        $this->assertFalse($failResponse->isSuccessful());
+    }
+
+
     /**
      * Create a mock response from the given filename.
      *

@@ -62,6 +62,7 @@ class DetailsResponseTest extends \Omnipay\Tests\TestCase
         );
     }
 
+
     /** @test */
     public function correct_http_response_status()
     {
@@ -70,6 +71,17 @@ class DetailsResponseTest extends \Omnipay\Tests\TestCase
 
         $this->assertEquals(200, $successResponse->responseCode);
         $this->assertEquals(401, $failResponse->responseCode);
+    }
+
+
+    /** @test */
+    public function correct_transaction_status()
+    {
+        $successResponse = $this->mockResponseFrom('DetailsSuccess.txt');
+        $failResponse = $this->mockResponseFrom('DetailsFailure.txt');
+
+        $this->assertTrue($successResponse->isSuccessful());
+        $this->assertFalse($failResponse->isSuccessful());
     }
 
 
