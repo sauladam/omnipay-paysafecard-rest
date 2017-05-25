@@ -58,7 +58,7 @@ class RestGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->validateRefund();
 
-        $this->assertInstanceOf("Omnipay\Paysafecard\Message\RefundRequest", $request);
+        $this->assertInstanceOf("Omnipay\Paysafecard\Message\ValidateRefundRequest", $request);
     }
 
 
@@ -68,23 +68,5 @@ class RestGatewayTest extends GatewayTestCase
         $request = $this->gateway->refund();
 
         $this->assertInstanceOf("Omnipay\Paysafecard\Message\RefundRequest", $request);
-    }
-
-
-    /** @test */
-    public function capture_is_set_to_false_for_validate_refund_requests()
-    {
-        $request = $this->gateway->validateRefund();
-
-        $this->assertFalse($request->getData()['capture']);
-    }
-
-
-    /** @test */
-    public function capture_is_set_to_true_for_refund_requests()
-    {
-        $request = $this->gateway->refund();
-
-        $this->assertTrue($request->getData()['capture']);
     }
 }

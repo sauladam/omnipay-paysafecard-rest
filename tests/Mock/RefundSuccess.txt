@@ -1,0 +1,7 @@
+HTTP/1.1 201 Created
+Set-Cookie: JSESSIONID=jrdUWb5c4YFbmFks-0nBuahg.pay1; Path=/v1; Secure; HttpOnly, TS0198fb74=011e84e90669aa3d330a4349ac786401db30cb867c430bb2ea09d6695f2498abf1eca29e6c; Path=/, TS016a0d2f=011e84e90605cad37b61e04e3f26e9d85566f389058210b472cf4bbd0989b06429f546a2861b7c154e1714280d52ba78583006f6ba; path=/v1
+Content-Type: application/json
+Date: Thu, 25 May 2017 08:32:19 GMT
+Transfer-Encoding: chunked
+
+{"object":"REFUND","id":"ref_1020007509_y7bTCJL8Rkwxm34u2EdSEGGCJ0X5kAXc_EUR","created":1495701137521,"updated":1495701138931,"currency":"EUR","amount":0.01,"customer":{"id":"530720772011","email":"RgpFUQfpIu@PJQCVqRgAP.YFx"},"status":"SUCCESS","customer_currency":"EUR","customer_amount":0.01}

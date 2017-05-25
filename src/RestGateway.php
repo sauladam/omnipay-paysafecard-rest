@@ -106,7 +106,7 @@ class RestGateway extends AbstractGateway
     {
         $options = array_merge($options, ['onlyValidate' => true]);
 
-        return $this->createRequest('\Omnipay\Paysafecard\Message\RefundRequest', $options);
+        return $this->createRequest('\Omnipay\Paysafecard\Message\ValidateRefundRequest', $options);
     }
 
 

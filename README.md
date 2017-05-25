@@ -17,13 +17,14 @@ This package is installed via [Composer](http://getcomposer.org/). To install, s
 to your `composer.json` file:
 
 ```bash
-    $ composer require sauladam/omnipay-paysafecard-rest
+$ composer require sauladam/omnipay-paysafecard-rest
 ```
 
 And run composer to update your dependencies:
 
-    $ composer update
-
+```bash
+$ composer update
+```
 
 ## Basic Usage
 
@@ -60,7 +61,7 @@ $response = $gateway->authorize([
     'success_url' => 'http://success.com/{payment_id}',
     'failure_url' => 'http://fail.com/{payment_id}',
     'notification_url' => 'http://notify.com/{payment_id}',
-    'customerId' => 1234,
+    'customer_id' => 1234,
 ])->send();
 
 if ($response->isSuccessful()) {
@@ -100,6 +101,48 @@ $response = $gateway->capture([
 
 if($response->getStatus() == 'SUCCESS') {
     // You have successfully captured the payment, the order is ready to ship.
+}
+```
+
+### Refunds
+In order to use the Refund API, you have to ask paysafecard explicitly to enable this endpoint for your merchant account, otherwise you will get a "401 Unauthorized" response.
+
+If you want to execute the refund immediately, just use the `refund()`-funtion directly with all the required data:
+
+```php
+$response = $gateway->refund([
+    'payment_id' => $paymentId,
+    'amount' => 12.34,
+    'currency' => 'EUR',
+    'customer_email' => 'customer@email.com',
+    'customer_id' => 1234,
+])->send();
+
+if($response->getStatus() == 'SUCCESS') {
+    // The amount was successfully refunded.
+}
+```
+
+However, **it is recommended to validate the refund first** in order to *"precheck the likeliness of the upcoming refund to be successful"* because *"there are certain conditions why a refund might be refused"*. 
+
+So instead of `refund()` you should rather use `validateRefund()` first with the same data and only request the refund if the validation passed:
+
+```php
+$validationResponse = $gateway->validateRefund([
+    // same data as above
+])->send();
+
+if(! $validationResponse->isSuccessful() || $validationResponse->getStatus() != 'VALIDATION_SUCCESSFUL') {
+    // something went wrong...
+}
+
+$refundResponse = $gateway->refund([
+  'payment_id' => $paymentId,
+  'refund_id' => $response->getRefundId(),
+])->send();
+
+if($refundResponse->isSuccessful()) {
+    echo "The refund was successful and the refund id is " . $refundResponse->getRefundId(); 
 }
 ```
 

@@ -1,0 +1,8 @@
+HTTP/1.1 400 Bad Request
+Set-Cookie: JSESSIONID=rEGc30iwDs3LCCOC0+tUQxKr.pay2; Path=/v1; Secure; HttpOnly, TS0198fb74=011e84e906351c494c452bf5062b0faf635f10678cfc64b2412d81ce3f4c947db5a1d21315; Path=/, TS016a0d2f=011e84e9066987ffa8b84d8fb3694b5b928533103c863e86321f6c78dac039f1d31a97bc471c3f4acffffecd0e1e9bae9f81fbb720; path=/v1
+Content-Type: application/json
+Date: Thu, 25 May 2017 08:33:35 GMT
+X-Cnection: close
+Transfer-Encoding: chunked
+
+{"code":"merchant_refund_exceeds_original_transaction","message":"Merchant refund exceeds original transaction","number":3179}

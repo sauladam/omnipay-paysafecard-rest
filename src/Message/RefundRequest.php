@@ -12,36 +12,87 @@ class RefundRequest extends AbstractRequest
      */
     public function getData()
     {
-        return [
-            'type' => 'PAYSAFECARD',
-            'capture' => !$this->getOnlyValidate(),
-            'amount' => $this->getAmount(),
-            'currency' => $this->getCurrency(),
-        ];
+        return $this->getRefundId()
+            ? []
+            : [
+                'type' => 'PAYSAFECARD',
+                'capture' => $this->shouldCapture(),
+                'amount' => $this->getAmount(),
+                'currency' => $this->getCurrency(),
+                'customer' => $this->getCustomerDetails(),
+            ];
     }
 
 
     /**
-     * Get the only validate value.
+     * Get the customer id value.
      *
-     * @return boolean
+     * @return string
      */
-    public function getOnlyValidate()
+    public function getCustomerId()
     {
-        return $this->getParameter('onlyValidate');
+        return $this->getParameter('customerId');
     }
 
 
     /**
-     * Set the only validate value.
+     * Set the customer id value.
      *
-     * @param $value
+     * @param string $value
      *
      * @return \Omnipay\Common\Message\AbstractRequest
      */
-    public function setOnlyValidate($value)
+    public function setCustomerId($value)
     {
-        return $this->setParameter('onlyValidate', $value);
+        return $this->setParameter('customerId', $value);
+    }
+
+
+    /**
+     * Get the customer email value.
+     *
+     * @return string
+     */
+    public function getCustomerEmail()
+    {
+        return $this->getParameter('customerEmail');
+    }
+
+
+    /**
+     * Set the customer email value.
+     *
+     * @param string $value
+     *
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function setCustomerEmail($value)
+    {
+        return $this->setParameter('customerEmail', $value);
+    }
+
+
+    /**
+     * Get the refund id value.
+     *
+     * @return string|null
+     */
+    public function getRefundId()
+    {
+        return $this->getParameter('refundId');
+    }
+
+
+    /**
+     * Set the refund id value.
+     *
+     * @param string|null $value
+     *
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function setRefundId($value)
+    {
+        return $this->setParameter('refundId', $value);
     }
 
 
@@ -52,6 +103,54 @@ class RefundRequest extends AbstractRequest
      */
     public function getEndpoint()
     {
-        return parent::getEndpoint() . 'payments/' . $this->getPaymentId() . '/refunds';
+        return $this->getRefundId()
+            ? parent::getEndpoint() . "payments/{$this->getPaymentId()}/refunds/{$this->getRefundId()}/capture"
+            : parent::getEndpoint() . "payments/{$this->getPaymentId()}/refunds";
+    }
+
+
+    /**
+     * Get the customer details that are set.
+     *
+     * @return array
+     */
+    protected function getCustomerDetails()
+    {
+        $details = [];
+
+        if ($email = $this->getCustomerEmail()) {
+            $details['email'] = $email;
+        }
+
+        if ($id = $this->getCustomerId()) {
+            $details['id'] = $id;
+        }
+
+        return $details;
+    }
+
+
+    /**
+     * Should the refund be captured?
+     *
+     * @return bool
+     */
+    protected function shouldCapture()
+    {
+        return true;
+    }
+
+
+    /**
+     * Create a response from the received data.
+     *
+     * @param \Guzzle\Http\Message\Response $response
+     * @param string $type
+     *
+     * @return RefundResponse
+     */
+    protected function createResponse($response, $type = '')
+    {
+        return parent::createResponse($response, 'Refund');
     }
 }

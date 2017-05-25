@@ -1,0 +1,8 @@
+HTTP/1.1 400 Bad Request
+Set-Cookie: JSESSIONID=-lkhJh1i1SutP5mT2JyuKFRI.pay2; Path=/v1; Secure; HttpOnly, TS0198fb74=011e84e906f0910234f7ff2b239959d781c2cac2bb6a8307db0d24a5e6168f50d1652216dd; Path=/, TS016a0d2f=011e84e90629493b915ccd95525ca54dcafd74eeb5e5bb2d055ebcee55338483eaabeac3768d6455d48ef7c6a53a7e839a82871bce; path=/v1
+Content-Type: application/json
+Date: Thu, 25 May 2017 08:16:21 GMT
+X-Cnection: close
+Transfer-Encoding: chunked
+
+{"code":"invalid_request_parameter","message":"may not be null","number":10028,"param":"customer.id"}
